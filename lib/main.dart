@@ -7,13 +7,9 @@ class BMICalculator extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: InputPage(),
-      theme: ThemeData(
+      theme: ThemeData.dark().copyWith(
         primaryColor: Color(0xFF090C22),
-        accentColor: Colors.purple,
         scaffoldBackgroundColor: Color(0xFF090C22),
-        textTheme: TextTheme(
-          body1: TextStyle(color: Colors.white),
-        ),
       ),
       title: 'BMI CAL',
     );
