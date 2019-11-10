@@ -16,8 +16,6 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Color maleCardColor = inActiveCardColor;
-  Color femaleCardColor = inActiveCardColor;
   Gender selectedGender;
 
   @override
@@ -35,35 +33,30 @@ class _InputPageState extends State<InputPage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ReusableCard(
+                    bgcolor: (selectedGender == Gender.male)
+                        ? activeCardColor
+                        : inActiveCardColor,
+                    cardChild: CustomIconContent('MALE', FontAwesomeIcons.mars),
+                    onTapFunction: () {
                       setState(() {
                         selectedGender = Gender.male;
                       });
                     },
-                    child: ReusableCard(
-                      bgcolor: (selectedGender == Gender.male)
-                          ? activeCardColor
-                          : inActiveCardColor,
-                      cardChild:
-                          CustomIconContent('MALE', FontAwesomeIcons.mars),
-                    ),
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ReusableCard(
+                    bgcolor: (selectedGender == Gender.female)
+                        ? activeCardColor
+                        : inActiveCardColor,
+                    cardChild:
+                        CustomIconContent('FEMALE', FontAwesomeIcons.venus),
+                    onTapFunction: () {
                       setState(() {
                         selectedGender = Gender.female;
                       });
                     },
-                    child: ReusableCard(
-                      bgcolor: (selectedGender == Gender.female)
-                          ? activeCardColor
-                          : inActiveCardColor,
-                      cardChild:
-                          CustomIconContent('FEMALE', FontAwesomeIcons.venus),
-                    ),
                   ),
                 ),
               ],
@@ -102,27 +95,4 @@ class _InputPageState extends State<InputPage> {
       ),
     );
   }
-
-  /*
-  void updateColor(Gender g) {
-    //1 for Male , 2 for Female
-    setState(() {
-      if (g == Gender.male) {
-        if (maleCardColor == inActiveCardColor) {
-          maleCardColor = activeCardColor;
-          femaleCardColor = inActiveCardColor;
-        } else {
-          maleCardColor = inActiveCardColor;
-        }
-      } else if (g == Gender.female) {
-        if (femaleCardColor == inActiveCardColor) {
-          femaleCardColor = activeCardColor;
-          maleCardColor = inActiveCardColor;
-        } else {
-          femaleCardColor = inActiveCardColor;
-        }
-      }
-    });
-  }
-  */
 }
