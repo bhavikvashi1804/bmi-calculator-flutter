@@ -28,7 +28,6 @@ class _InputPageState extends State<InputPage> {
         children: <Widget>[
           Expanded(
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Expanded(
                   child: ReusableCard(
@@ -66,7 +65,20 @@ class _InputPageState extends State<InputPage> {
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text('HEIGHT'),
+                  Text('HEIGHT',style: kLabelTextStyle,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    //baseline means 180 and cm placed at base line
+                    //textBaseLine is also for it 
+                    children: <Widget>[
+                      Text('180',
+                        style: kNoTextStyle,
+                      ),
+                      Text('cm' , style: kLabelTextStyle,),
+
+                  ],),
 
                 ],
               ),
@@ -74,7 +86,6 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Expanded(
                   child: ReusableCard(
@@ -84,6 +95,7 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     bgcolor: kActiveCardColor,
+                    
                   ),
                 ),
               ],
