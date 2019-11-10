@@ -18,6 +18,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Color maleCardColor = inActiveCardColor;
   Color femaleCardColor = inActiveCardColor;
+  Gender selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +36,15 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 Expanded(
                   child: GestureDetector(
-                    onTap: () => updateColor(Gender.male),
+                    onTap: () {
+                      setState(() {
+                        selectedGender = Gender.male;
+                      });
+                    },
                     child: ReusableCard(
-                      bgcolor: maleCardColor,
+                      bgcolor: (selectedGender == Gender.male)
+                          ? activeCardColor
+                          : inActiveCardColor,
                       cardChild:
                           CustomIconContent('MALE', FontAwesomeIcons.mars),
                     ),
@@ -45,9 +52,15 @@ class _InputPageState extends State<InputPage> {
                 ),
                 Expanded(
                   child: GestureDetector(
-                    onTap: () => updateColor(Gender.female),
+                    onTap: () {
+                      setState(() {
+                        selectedGender = Gender.female;
+                      });
+                    },
                     child: ReusableCard(
-                      bgcolor: femaleCardColor,
+                      bgcolor: (selectedGender == Gender.female)
+                          ? activeCardColor
+                          : inActiveCardColor,
                       cardChild:
                           CustomIconContent('FEMALE', FontAwesomeIcons.venus),
                     ),
@@ -90,6 +103,7 @@ class _InputPageState extends State<InputPage> {
     );
   }
 
+  /*
   void updateColor(Gender g) {
     //1 for Male , 2 for Female
     setState(() {
@@ -110,4 +124,5 @@ class _InputPageState extends State<InputPage> {
       }
     });
   }
+  */
 }
