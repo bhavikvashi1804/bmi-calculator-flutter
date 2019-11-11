@@ -39,6 +39,7 @@ class _InputPageState extends State<InputPage> {
                     cardChild: CustomIconContent('MALE', FontAwesomeIcons.mars),
                     onTapFunction: () {
                       setState(() {
+                        print("yes");
                         selectedGender = Gender.male;
                       });
                     },
