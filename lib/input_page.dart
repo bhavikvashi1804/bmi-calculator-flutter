@@ -39,7 +39,6 @@ class _InputPageState extends State<InputPage> {
                     cardChild: CustomIconContent('MALE', FontAwesomeIcons.mars),
                     onTapFunction: () {
                       setState(() {
-                        print("yes");
                         selectedGender = Gender.male;
                       });
                     },
@@ -205,10 +204,17 @@ class _InputPageState extends State<InputPage> {
             child: Container(
               color: kBottomContainerColor,
               margin: EdgeInsets.only(top: 10.0),
+              //padding: EdgeInsets.only(bottom: 20.0),
+              //use this padding only for iOS and Android 10
               //full width
               width: double.infinity,
               height: kBottomContainerHeight,
-              child: Text("CALCULATE"),
+              child: Center(
+                child: Text(
+                  "CALCULATE",
+                  style: kLargeButtonTextStyle,
+                ),
+              ),
             ),
           ),
         ],
