@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'constant.dart';
+import 'reusable_card.dart';
 
 class ResultPage extends StatelessWidget {
   @override
@@ -9,7 +11,44 @@ class ResultPage extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
-        child: Text("Result will be display here"),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Expanded(
+              child: Container(
+                child: Text(
+                  'Your Result',
+                  style: kTitleTextStyle,
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 5,
+              child: ReusableCard(
+                bgcolor: kActiveCardColor,
+                cardChild: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      'Normal',
+                      style: kResultTextStyle,
+                    ),
+                    Text(
+                      '18.1',
+                      style: kBMITextStyle,
+                    ),
+                    Text(
+                      'Your BMI result is low',
+                      style: kBodyTextStyle,
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
