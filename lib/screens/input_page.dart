@@ -1,3 +1,5 @@
+import 'package:bmi_calculator/arguments/result_arguements.dart';
+import 'package:bmi_calculator/screens/results_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../components/icon_content.dart';
@@ -202,9 +204,28 @@ class _InputPageState extends State<InputPage> {
           BottomButton(
             buttonTitle: 'CALCULATE',
             onTap: () {
-              Navigator.pushNamed(context, '/result');
               CalculatorBrain cb1 =
                   CalculatorBrain(height: height, weight: weight);
+
+              String t = cb1.calBMI();
+              print(t);
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultPage(),
+                  // Pass the arguments as part of the RouteSettings. The
+                  // ExtractArgumentScreen reads the arguments from these
+                  // settings.
+                  settings: RouteSettings(
+                    arguments: ResultArgs(
+                      cb1.calBMI(),
+                      cb1.getResult(),
+                      cb1.getInterpretation(),
+                    ),
+                  ),
+                ),
+              );
             },
           ),
         ],
