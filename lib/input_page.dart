@@ -4,8 +4,6 @@ import 'icon_content.dart';
 import 'reusable_card.dart';
 import 'constant.dart';
 
-
-
 enum Gender { male, female }
 
 class InputPage extends StatefulWidget {
@@ -15,6 +13,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
+  int height = 180;
 
   @override
   Widget build(BuildContext context) {
@@ -65,21 +64,39 @@ class _InputPageState extends State<InputPage> {
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text('HEIGHT',style: kLabelTextStyle,),
+                  Text(
+                    'HEIGHT',
+                    style: kLabelTextStyle,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.baseline,
                     textBaseline: TextBaseline.alphabetic,
                     //baseline means 180 and cm placed at base line
-                    //textBaseLine is also for it 
+                    //textBaseLine is also for it
                     children: <Widget>[
-                      Text('180',
+                      Text(
+                        height.toString(),
                         style: kNoTextStyle,
                       ),
-                      Text('cm' , style: kLabelTextStyle,),
-
-                  ],),
-
+                      Text(
+                        'cm',
+                        style: kLabelTextStyle,
+                      ),
+                    ],
+                  ),
+                  Slider(
+                    onChanged: (double value) {
+                      setState(() {
+                        height = value.toInt();
+                      });
+                    },
+                    value: height.toDouble(),
+                    activeColor: Color(0xFFEB1555),
+                    inactiveColor: Color(0xFF8D8E98),
+                    min: 120.0,
+                    max: 220.0,
+                  ),
                 ],
               ),
             ),
@@ -95,7 +112,6 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     bgcolor: kActiveCardColor,
-                    
                   ),
                 ),
               ],
