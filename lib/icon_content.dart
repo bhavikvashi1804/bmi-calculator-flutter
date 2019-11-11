@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 import 'constant.dart';
 
-
-
-
 class CustomIconContent extends StatelessWidget {
   final String content;
   final IconData iconData;
-
   CustomIconContent(this.content, this.iconData);
-
   @override
   Widget build(BuildContext context) {
     return Column(
