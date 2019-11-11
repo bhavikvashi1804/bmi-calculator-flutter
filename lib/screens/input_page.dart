@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../components/icon_content.dart';
 import '../components/reusable_card.dart';
-import '../constant.dart';
 import '../components/round_icon_button.dart';
 import '../components/bottom_button.dart';
+import '../constant.dart';
+import '../cal_brain.dart';
 
 enum Gender { male, female }
 
@@ -202,7 +203,8 @@ class _InputPageState extends State<InputPage> {
             buttonTitle: 'CALCULATE',
             onTap: () {
               Navigator.pushNamed(context, '/result');
-              print('yes');
+              CalculatorBrain cb1 =
+                  CalculatorBrain(height: height, weight: weight);
             },
           ),
         ],

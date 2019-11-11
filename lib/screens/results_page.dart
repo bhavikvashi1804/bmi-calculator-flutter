@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import '../constant.dart';
 import '../components/reusable_card.dart';
 import '../components/bottom_button.dart';
+import '../cal_brain.dart';
 
 class ResultPage extends StatelessWidget {
+  final String bmiResult, resultText, interpretation;
+  ResultPage({this.bmiResult, this.resultText, this.interpretation});
+
   @override
   Widget build(BuildContext context) {
+    final CalculatorBrain args = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text('BMI CALCULATOR'),
