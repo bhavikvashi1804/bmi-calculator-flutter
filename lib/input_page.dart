@@ -4,6 +4,7 @@ import 'icon_content.dart';
 import 'reusable_card.dart';
 import 'constant.dart';
 import 'round_icon_button.dart';
+import 'bottom_button.dart';
 
 enum Gender { male, female }
 
@@ -197,25 +198,12 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
+          BottomButton(
+            buttonTitle: 'CALCULATE',
             onTap: () {
               Navigator.pushNamed(context, '/result');
+              print('yes');
             },
-            child: Container(
-              color: kBottomContainerColor,
-              margin: EdgeInsets.only(top: 10.0),
-              //padding: EdgeInsets.only(bottom: 20.0),
-              //use this padding only for iOS and Android 10
-              //full width
-              width: double.infinity,
-              height: kBottomContainerHeight,
-              child: Center(
-                child: Text(
-                  "CALCULATE",
-                  style: kLargeButtonTextStyle,
-                ),
-              ),
-            ),
           ),
         ],
       ),
