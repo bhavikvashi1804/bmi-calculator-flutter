@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
 import 'reusable_card.dart';
 import 'constant.dart';
+import 'round_icon_button.dart';
 
 enum Gender { male, female }
 
@@ -135,17 +136,11 @@ class _InputPageState extends State<InputPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            FloatingActionButton(
-                              child: Icon(Icons.add),
-                              backgroundColor: Color(0xFF4C4F5E),
-                            ),
+                            RoundIconButton(FontAwesomeIcons.minus, null),
                             SizedBox(
                               width: 10.0,
                             ),
-                            FloatingActionButton(
-                              child: Icon(Icons.remove),
-                              backgroundColor: Color(0xFF4C4F5E),
-                            )
+                            RoundIconButton(FontAwesomeIcons.plus, null),
                           ],
                         ),
                       ],
@@ -172,3 +167,4 @@ class _InputPageState extends State<InputPage> {
     );
   }
 }
+
