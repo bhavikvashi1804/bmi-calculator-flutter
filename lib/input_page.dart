@@ -122,6 +122,7 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     bgcolor: kActiveCardColor,
+                    onTapFunction: null,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -136,11 +137,19 @@ class _InputPageState extends State<InputPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            RoundIconButton(FontAwesomeIcons.minus, null),
+                            RoundIconButton(FontAwesomeIcons.minus, () {
+                              setState(() {
+                                weight--;
+                              });
+                            }),
                             SizedBox(
                               width: 10.0,
                             ),
-                            RoundIconButton(FontAwesomeIcons.plus, null),
+                            RoundIconButton(FontAwesomeIcons.plus, () {
+                              setState(() {
+                                weight++;
+                              });
+                            }),
                           ],
                         ),
                       ],
