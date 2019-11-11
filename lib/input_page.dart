@@ -16,6 +16,7 @@ class _InputPageState extends State<InputPage> {
   Gender selectedGender;
   int height = 180;
   int weight = 60;
+  int age = 25;
 
   @override
   Widget build(BuildContext context) {
@@ -159,6 +160,38 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     bgcolor: kActiveCardColor,
+                    onTapFunction: null,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'AGE',
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: kNoTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RoundIconButton(FontAwesomeIcons.minus, () {
+                              setState(() {
+                                age--;
+                              });
+                            }),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            RoundIconButton(FontAwesomeIcons.plus, () {
+                              setState(() {
+                                age++;
+                              });
+                            }),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
