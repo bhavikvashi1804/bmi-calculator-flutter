@@ -17,6 +17,7 @@ class ResultPage extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: Container(
+                margin: EdgeInsets.all(10.0),
                 child: Text(
                   'Your Result',
                   style: kTitleTextStyle,
@@ -34,6 +35,7 @@ class ResultPage extends StatelessWidget {
                     Text(
                       'Normal',
                       style: kResultTextStyle,
+                      textAlign: TextAlign.center,
                     ),
                     Text(
                       '18.1',
@@ -41,6 +43,7 @@ class ResultPage extends StatelessWidget {
                     ),
                     Text(
                       'Your BMI result is low',
+                      textAlign: TextAlign.center,
                       style: kBodyTextStyle,
                     ),
                   ],
